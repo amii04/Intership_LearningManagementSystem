@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pragnya - Learning Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Authentication Page -->
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6 text-center">Login to Pragnya</h2>
+            <div class="flex justify-center mb-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 mr-2">
+                    <i class="fab fa-google mr-2"></i> Google
+                </button>
+                <button class="bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-800 transition duration-300">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </button>
+            </div>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Email</label>
+                    <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Password</label>
+                    <input type="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Role</label>
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Instructor</option>
+                        <option>Student</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">Login</button>
+            </form>
+            <p class="text-center text-gray-600 mt-4">Don't have an account? <a href="signup.jsp" class="text-blue-500">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold">Dashboard</h2>
+            <div class="relative">
+                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-900 transition duration-300">Profile</button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Upload Course</h3>
+                <div class="border-dashed border-4 border-gray-200 p-4 rounded-lg text-center">
+                    <p class="text-gray-600 mb-4">Drag and drop your files here</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">Browse Files</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Course List</h3>
+                <ul>
+                    <li class="flex justify-between items-center mb-4">
+                        <span>Course 1</span>
+                        <div class="flex space-x-2">
+                            <button class="bg-yellow-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300">Edit</button>
+                            <button class="bg-red-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-red-600 transition duration-300">Delete</button>
+                            <button class="bg-green-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-green-600 transition duration-300">View</button>
+                        </div>
+                    </li>
+                    <li class="flex justify-between items-center mb-4">
+                        <span>Course 2</span>
+                        <div class="flex space-x-2">
+                            <button class="bg-yellow-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300">Edit</button>
+                            <button class="bg-red-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-red-600 transition duration-300">Delete</button>
+                            <button class="bg-green-500 text-white px-2 py-1 rounded-lg shadow-lg hover:bg-green-600 transition duration-300">View</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Analytics</h3>
+                <p class="text-gray-600">Enrollments: 120</p>
+                <p class="text-gray-600">Feedback Ratings: 4.5/5</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Details Page -->
+    <div class="container mx-auto p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold">Course Title</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">Enroll Now</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-2">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold mb-2">Course Content</h3>
+                        <ul class="space-y-4">
+                            <li class="bg-gray-100 p-4 rounded-lg shadow-lg">Chapter 1: Introduction</li>
+                            <li class="bg-gray-100 p-4 rounded-lg shadow-lg">Chapter 2: Basics</li>
+                            <li class="bg-gray-100 p-4 rounded-lg shadow-lg">Chapter 3: Advanced Topics</li>
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold mb-2">Student Feedback & Ratings</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star-half-alt text-yellow-500"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">4.5/5 (120 reviews)</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                                <p class="text-gray-600">Great course! Learned a lot.</p>
+                                <div class="flex items-center mt-2">
+                                    <i class="fas fa-user-circle text-gray-500 mr-2"></i>
+                                    <span class="text-gray-600">John Doe</span>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                                <p class="text-gray-600">Very informative and well-structured.</p>
+                                <div class="flex items-center mt-2">
+                                    <i class="fas fa-user-circle text-gray-500 mr-2"></i>
+                                    <span class="text-gray-600">Jane Smith</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Q&A Forum</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                            <p class="text-gray-600">How do I access the course materials?</p>
+                            <div class="flex items-center mt-2">
+                                <i class="fas fa-user-circle text-gray-500 mr-2"></i>
+                                <span class="text-gray-600">Student</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-lg mt-4">
+                            <p class="text-gray-600">You can access the materials from the course content section.</p>
+                            <div class="flex items-center mt-2">
+                                <i class="fas fa-user-circle text-gray-500 mr-2"></i>
+                                <span class="text-gray-600">Instructor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2">Course Sidebar</h3>
+                    <ul class="space-y-4">
+                        <li class="bg-white p-4 rounded-lg shadow-lg">Overview</li>
+                        <li class="bg-white p-4 rounded-lg shadow-lg">Content</li>
+                        <li class="bg-white p-4 rounded-lg shadow-lg">Feedback</li>
+                        <li class="bg-white p-4 rounded-lg shadow-lg">Q&A</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">About Us</h3>
+                <p class="text-gray-400">We are dedicated to providing the best online learning experience for both instructors and students.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="text-gray-400">
+                    <li class="mb-2"><a class="hover:text-white" href="#">Home</a></li>
+                    <li class="mb-2"><a class="hover:text-white" href="#">Courses</a></li>
+                    <li class="mb-2"><a class="hover:text-white" href="#">About</a></li>
+                    <li class="mb-2"><a class="hover:text-white" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                <p class="text-gray-400 mb-2"><i class="fas fa-envelope mr-2"></i> info@pragnya.com</p>
+                <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Pragnya Street, Education City, USA</p>
+            </div>
+        </div>
+        <div class="container mx-auto text-center mt-8">
+            <p>© 2023 Pragnya. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.project.lms.util;
+
+public class DBConnect {
+
+}

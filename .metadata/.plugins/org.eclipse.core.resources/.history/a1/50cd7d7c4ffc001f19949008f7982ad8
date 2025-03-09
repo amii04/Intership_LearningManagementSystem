@@ -1,0 +1,58 @@
+package com.project.lms.servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+import com.project.lms.util.DBConnect;
+
+@WebServlet("/signup")
+public class SignupServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String role = request.getParameter("role");
+
+		if (name == null || email == null || password == null || role == null || name.isEmpty() || email.isEmpty()
+				|| password.isEmpty() || role.isEmpty()) {
+			response.sendRedirect("signup-page.html?error=Missing+Fields");
+			return;
+		}
+
+		// ✅ Hash password using BCrypt
+		String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
+		try (Connection conn = DBConnect.getInstance().getConnection();
+				PreparedStatement stmt = conn
+						.prepareStatement("INSERT INTO Users (name, email, password, role) VALUES (?, ?, ?, ?)")) {
+
+			stmt.setString(1, name);
+			stmt.setString(2, email);
+			stmt.setString(3, hashedPassword); // ✅ Store hashed password
+			stmt.setString(4, role.toUpperCase());
+
+			int rowsInserted = stmt.executeUpdate();
+			if (rowsInserted > 0) {
+				response.sendRedirect("login-page.html?success=Signup+Successful");
+			} else {
+				response.sendRedirect("signup-page.html?error=Signup+Failed");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			response.sendRedirect("signup-page.html?error=Database+Error");
+		}
+	}
+}
