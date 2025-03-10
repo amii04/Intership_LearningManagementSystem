@@ -1,3 +1,10 @@
+<%@ page session="true" %>
+<%
+   
+%>
+
+
+<%@ include file="navbar.jsp" %>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -58,7 +65,7 @@
         }
   </style>
   <script>
-    function loadNavbar() {
+  /*  function loadNavbar() {
         fetch("navbar.html")
             .then(response => response.text())
             .then(data => {
@@ -66,7 +73,7 @@
             })
             .catch(error => console.error("Error loading navbar:", error));
     }
-    window.onload = loadNavbar;
+    window.onload = loadNavbar;*/
 </script>
  </head>
  <body class="bg-gray-100">
@@ -119,7 +126,7 @@
       </div>
      </div>
     </nav>------>
-    <div class="mobile-menu">
+ <!-- -  <div class="mobile-menu">
      <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-500">
       <i class="fas fa-bars"></i>
      </button>
@@ -161,7 +168,7 @@
        </a>
       </div>
      </div>
-    </nav>
+    </nav>  --> 
    </div>
   </header>
   <main class="container mx-auto p-4">
@@ -396,29 +403,5 @@
     </div>
    </section>
   </main>
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-            <h3 class="text-xl font-bold mb-4">About Us</h3>
-            <p class="text-gray-400">We are dedicated to providing the best online learning experience for both instructors and students.</p>
-        </div>
-        <div>
-            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-            <ul class="text-gray-400">
-                <li class="mb-2"><a class="hover:text-white" href="#">Home</a></li>
-                <li class="mb-2"><a class="hover:text-white" href="#">Courses</a></li>
-                <li class="mb-2"><a class="hover:text-white" href="#">About</a></li>
-                <li class="mb-2"><a class="hover:text-white" href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-            <p class="text-gray-400 mb-2"><i class="fas fa-envelope mr-2"></i> info@pragnya.com</p>
-            <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
-            <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Pragnya Street, Education City, USA</p>
-        </div>
-    </div>
-    <div class="container mx-auto text-center mt-8">
-        <p>© 2023 Pragnya. All rights reserved.</p>
-    </div>
-</footer>
+
+<%@ include file="footer.jsp" %>

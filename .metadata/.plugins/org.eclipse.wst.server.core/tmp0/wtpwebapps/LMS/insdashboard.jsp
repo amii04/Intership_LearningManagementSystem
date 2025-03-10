@@ -1,3 +1,24 @@
+<%@ page session="true" %>
+<%
+    String role = (String) session.getAttribute("role");
+    if (role == null || !role.equals("INSTRUCTOR")) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
+<%@ page session="true" %>
+	<%
+	    if (session.getAttribute("role") == null) {
+	        response.sendRedirect("login.jsp");
+	        return;
+	    }
+	
+	    // Invalidate session on refresh
+	    session.invalidate();
+	%>
+
+<%@ include file="navbardashboard.jsp" %>
+
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -10,9 +31,19 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </style>
 <script>
+
+window.history.forward(); // Forces forward navigation after login
+window.onload = function () {
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+};
+
+/*
     function loadComponents() {
         // Load Navbar
-        fetch("navbardashboard.html")
+       fetch("navbardashboard.html")
             .then(response => response.text())
             .then(data => {
                 document.getElementById("navbar-container").innerHTML = data;
@@ -29,8 +60,9 @@
     }
   
     window.onload = loadComponents;
+    */
   </script>
-  
+
 </head>
 <div id="navbar-container"></div>
  <body class="bg-gray-100">
@@ -293,7 +325,8 @@
     </div>
    </div>
   </main>
-  <div id="footer-container"></div>
+
+<%@ include file="footer.jsp" %>
   <script>
    document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu-dropdown');

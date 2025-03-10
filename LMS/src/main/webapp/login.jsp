@@ -1,6 +1,8 @@
+<%-- --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Pragya</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    window.history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        window.history.pushState(null, null, document.URL);
+    });
+</script>
+
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 	rel="stylesheet" />
